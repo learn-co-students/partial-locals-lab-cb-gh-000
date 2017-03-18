@@ -14,6 +14,6 @@ class Classroom < ActiveRecord::Base
   has_many :students, through: :classroom_students
 
   def oldest_student
-    students.where("birthday is not null").order("birthday asc").first
+    students.where("birthday IS NOT NULL").order("birthday ASC").first
   end
 end
