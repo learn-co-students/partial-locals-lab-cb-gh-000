@@ -13,4 +13,13 @@
 class Student < ActiveRecord::Base
   has_many :classroom_students
   has_many :classrooms, through: :classroom_students
+
+  def self.search(input)
+    if input.strip == ""
+      matched_studens = self.all
+    else
+      matched_studens = self.all.map { |student| student if student.name.include?(input.capitalize) }
+    end
+    matched_studens.compact
+  end
 end
