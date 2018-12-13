@@ -3,9 +3,9 @@
     Name: <%= student.name %>
   </li>
   <li>
-    Birthday: <%= student.birthday.strftime("%m/%d/%Y")  %>
+    Birthday: <%= student.birthday.strftime("%m/%d/%Y") if student.birthday  %>
   </li>
   <li>
-    Hometown: <%= student.hometown.capitalize %>
+    Hometown: <%= student.hometown.capitalize if student.hometown %>
   </li>
 </ul>
